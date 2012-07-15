@@ -1,0 +1,31 @@
+# extensions to ignore
+# mac resource files
+*.DS_Store
+*.txt~
+*.gitignore~
+*.rb~
+*.scss~
+*.scssc
+*.scss~
+*.scala~
+*.js~
+*.html~
+*.md~
+
+*.pyc
+*.py~
+*.pyo
+
+.installed.cfg
+bin
+develop-eggs
+dist
+downloads
+eggs
+parts
+src/*.egg-info
+lib
+lib64
+
+build/
+dist/

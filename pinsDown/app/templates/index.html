@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>PinsDown.com</title>
+
+    <script type="text/javascript"
+	    src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCzlVKPlbWTktr8Y3jRQIAIAfy4XasFVVM&sensor=true"></script>
+    <script type="text/javascript"
+	    src="/static/js/main.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17757678-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </head>
+  <body>
+    <div id="global-nav">
+      <div id="project-info"><b>Crime Data Hack</b>Track mobile phone crime in real time. See thefts mapped and report where your phone was taken.</div>
+      <div id="top-logo"></div>
+      <div class="top-button" id="top-but-three"></div>
+      <div class="top-button" id="top-but-two"></div>
+      <div class="top-button" id="top-but-one"></div>
+      <div class="bar-item">
+	<div id="loc-options-text">Drag Map or Select</div>
+	<select id="loc-options">
+	</select>
+      </div>
+      <div class="top-button" id="get-my-location-but"></div>
+    </div>
+    
+    <div id="map-container">
+      <div id="map-holder"></div>
+    </div>
+
+    <div class="main-popup hidden" id="main-popup-one">
+      <div class="title">Reported Thefts</div>
+      <div class="subtitle">location data slightly randomised for privacy</div>
+      <div class="row">
+	<input type="checkbox" id="theft-input-one" checked="checked"/>
+	<div class="icon one"></div>
+	<div class="text">Reports on Twitter (show tweets)</div>
+      </div>
+      <div class="row">
+	<div class="icon two"></div>
+	<div class="text">Reports on PinsDown.com</div>
+      </div>
+    </div>
+    <div class="main-popup hidden" id="main-popup-two">
+      <div class="title">Submit a theft (click on map to drop pin)</div>
+      <div id="cancel-submit-loc" style="display:none" class="generic-button">Cancel</div>
+      <div id="submit-loc" style="display:none" class="generic-button green">Save</div>
+    </div>
+    <div class="main-popup hidden" id="main-popup-three">
+      <div class="title">UK Government Data</div>
+      <a style="margin-left:32px;" href="http://data.gov.uk/dataset/home-security-mobile-phone-theft-andstolen-goods">Data.gov dataset</a>
+      <a href="http://en.wikipedia.org/wiki/List_of_United_Kingdom_nations_by_population">Population Figures (wikipedia)</a>
+      <div class="subtitle">Regional Phone Theft Ratio (08/09, per '1000 people)</div>
+      <div class="main-chart">
+      </div>
+    </div>
+
+    <ul id="tweet-container" class="hidden">
+    </ul>
+
+  </body>
+</html>

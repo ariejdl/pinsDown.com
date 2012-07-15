@@ -1,0 +1,446 @@
+@import "compass/css3";
+
+@mixin compat-grad($bottom, $top) {
+    background: mix($top, $bottom); /* Old browsers */
+    background: -moz-linear-gradient(top, $top 0%, $bottom 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, $top 0%,$bottom 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, $top 0%,$bottom 100%); /* IE10+ */
+    filter: #{"progid:DXImageTransform.Microsoft.gradient( startColorstr='"}$top#{"', endColorstr='"}$bottom#{"',GradientType=0 )"}; /* IE6-9 */
+    background: linear-gradient(top, $top 0%,$bottom 100%); /* W3C */
+}
+
+@mixin inline {
+    display: inline-block;
+    /* deal with IE7 */
+    *zoom: 1;
+    *display: inline;
+}
+
+@import "buts";
+
+$global-nav-height: 50;
+
+body {
+    overflow: hidden;
+}
+
+/* top area */
+
+#global-nav {
+    position: fixed;
+    top: 0px; left: 0px;
+    height: $global-nav-height + px;
+//    background: black;
+    @include compat-grad(#000, #333);
+    width: 100%;
+    z-index: 10;
+    @include box-shadow(rgba(0,0,0,0.6) 0 1px 10px);
+}
+
+$default-font: 'Helvetica Neue', Helvetica, sans-serif;
+div {
+    font-family: $default-font;
+    font-size: 12px;
+}
+
+/* top area buttons */
+#project-info {
+    position: absolute;
+    top: 11px; left: 11px;
+    font-family: $default-font;
+    font-weight: 300;
+    font-size: 13px;
+    color: #555;
+    width: 350px;
+}
+
+#project-info > b {
+    color: #aaa;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+$logo-w: 200;
+#top-logo {
+    position: absolute;
+    width: $logo-w + px;
+    left: 50%;
+    margin-left: (-$logo-w / 2) + px;
+    height: $global-nav-height + px;
+    top: 0px;
+//    background: #777;
+    background: transparent url("/static/images/sprites-1.png") 0px 0px;
+}
+
+.bar-item {
+    position: relative;
+    float: right;
+    height: 100%;
+    width: 100px;
+    margin-right: 40px;
+}
+
+#loc-options-text {
+    position: absolute;
+    font-size: 10px;
+    color: #777;
+    font-family: $default-font;
+    top: 7px;
+    left: -1px;
+    width: 100px;
+    text-align: center;
+}
+
+#loc-options {
+    top: 24px;
+    position: absolute;
+    left: 0px;
+    width: 100px;
+}
+
+.top-button {
+    @include transition-property(box-shadow, border);
+    @include transition-duration(400ms);
+
+    position: relative;
+    float: right;
+    top: 4px;
+    height: $global-nav-height - 8 + px;
+    width: $global-nav-height - 8 + px;
+    background: #777;
+    margin-right: 4px;
+    cursor: pointer;
+    @include border-radius(2px);
+}
+
+.top-button.selected {
+    @include box-shadow(rgba(0,0,0,0.5) 0 1px 4px inset);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+
+$top-but-back: rgba(255,255,255,0.2);
+$top-but-back-sel: rgba(255,255,255,0.4);
+$top-but-back-hov: rgba(255,255,255,0.3);
+
+#get-my-location-but { background: $top-but-back url("/static/images/sprites-1.png") -200px -0px; }
+#top-but-one { background: $top-but-back url("/static/images/sprites-1.png") -250px -0px; }
+#top-but-two { background: $top-but-back url("/static/images/sprites-1.png") -300px -0px; }
+#top-but-three { background: $top-but-back url("/static/images/sprites-1.png") -350px -0px; }
+
+#get-my-location-but.selected { background: $top-but-back-sel url("/static/images/sprites-1.png") -200px -0px; }
+#top-but-one.selected { background: $top-but-back-sel url("/static/images/sprites-1.png") -250px -0px; }
+#top-but-two.selected { background: $top-but-back-sel url("/static/images/sprites-1.png") -300px -0px; }
+#top-but-three.selected { background: $top-but-back-sel url("/static/images/sprites-1.png") -350px -0px; }
+
+#get-my-location-but:hover { background: $top-but-back-hov url("/static/images/sprites-1.png") -200px -0px; }
+#top-but-one:hover { background: $top-but-back-hov url("/static/images/sprites-1.png") -250px -0px; }
+#top-but-two:hover { background: $top-but-back-hov url("/static/images/sprites-1.png") -300px -0px; }
+#top-but-three:hover { background: $top-but-back-hov url("/static/images/sprites-1.png") -350px -0px; }
+
+/* panels */
+
+
+@mixin basic-panel {
+
+    background: rgba(255,255,255,0.9);
+//    background: rgba(0,0,0,0.7);
+    @include border-radius(4px);
+//    border: 1px solid white;
+    border: 1px solid rgba(0,0,0,0.4);
+//    @include box-shadow(rgba(0,0,0,0.4) 0 2px 5px);
+}
+
+
+$panel-w: 300;
+.main-popup {
+    position: absolute;
+
+    @include transition-property(right);
+    @include transition-duration(400ms);
+    @include basic-panel;
+
+    width: $panel-w + px;
+    right: 10px;
+    height: 20px;
+}
+
+.main-popup.hidden {
+    right: (-$panel-w - 20) + px;
+}
+
+.main-popup > .title {
+    width:100%;
+    font-family: $default-font;
+    font-size: 14px;
+    position: relative;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+.main-popup > a {
+    margin-left: 5px;
+    color: #1F89CC;
+    font-size: 11px;
+}
+
+.main-popup > .subtitle {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 14px;
+    color: #aaa;
+}
+
+.main-popup > .row {
+    width: 100%;
+    height: 25px;
+    margin-top: 5px;
+    position: relative;
+}
+
+.main-popup > .row > .icon {
+    float: right;
+    width: 18px;
+    height: 22px;
+}
+
+.main-popup > .row > .icon.one { background: url("/static/images/pin-1-l.png"); }
+.main-popup > .row > .icon.two { background: url("/static/images/pin-1-orange.png"); margin-right:24px; }
+
+.main-popup > .row > input {
+    float: right;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+.main-popup > .row > .text {
+    float: right;
+    font-family: $default-font;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-right: 6px;
+    color: #777;
+}
+
+#main-popup-one {
+    top: $global-nav-height + 10 + px;
+    height: 110px;
+}
+#main-popup-two {
+    top: 180px;
+    height: 70px;
+}
+#main-popup-three {
+    top: 260px;
+    height: 300px;
+}
+
+#main-popup-two > .generic-button {
+    margin-top: 8px;
+    float: left;
+    margin-left: 85px;
+}
+
+#main-popup-two > .generic-button.green {
+    float: left;
+    margin-left: 5px;
+}
+
+/* map */
+
+#map-container {
+    position: fixed;
+    top: $global-nav-height + px;
+    left: 0px; right: 0px; bottom: 0px;
+}
+
+#map-holder {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* aug tweet */
+
+@-webkit-keyframes default-appear {
+  0% { -webkit-transform: scale3d(0.1, 0.1, 1);  }
+  100% { -webkit-transform: scale3d(1, 1, 1);  }
+}
+
+div.augtweet_exact {
+    width: 24px;
+    height: 32px;
+//    background: transparent url("/static/images/pin-1.png");
+//    background-image: url("http://twitter.com/images/pin.png");
+//    background: blue;
+    background: transparent url("/static/images/pin-2.png");
+
+    -webkit-animation-duration: 500ms;
+    -webkit-animation-name: default-appear;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+div.augtweet_exact > img {
+    position: absolute;
+    top: 0px; right: 0px;
+    @include border-radius(2px);
+		width: 24px; height: 4px;
+}
+
+div.augtweet_exact > .inner {
+    position: absolute;
+    bottom: 0px; left: 0px; height: 22px; width: 18px;
+//    background: red;
+    z-index: 10;
+    background: transparent url("/static/images/pin-1.png");
+}
+
+
+
+/* tweets ui */
+
+#tweet-container {
+    @include transition-property(left);
+    @include transition-duration(400ms);
+
+    position: fixed;
+    top: 0px;
+    padding-top: $global-nav-height + 6 + px;
+    left: 40px;
+    z-index: 1;
+    bottom: 0px;
+    overflow: hidden;
+//    overflow: auto;
+}
+
+#tweet-container.hidden,
+#tweet-container.hidden-2 {
+    left: -400px
+}
+
+.tweet-item {
+    @include transition-property(margin-top, margin-bottom, top, transform);
+    @include transition-duration(400ms);
+
+    position: relative;
+    width: 320px;
+//    padding: 5px 5px 25px 55px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+
+    height: 65px;
+    @include basic-panel;
+}
+
+.tweet-item.start {
+    margin-top: 15px;
+    top: -200px;
+    margin-bottom: -90px;
+}
+
+$tweet-accent: #666;
+.tweet-item > .text {
+    position: absolute;
+    font-family: $default-font;
+    color: #999;
+    top: 5px;
+    right: 5px;
+    left: 55px;
+    font-size: 12px;
+    font-weight: 300;
+    height: 55px;
+    overflow: hidden;
+//    position: relative;
+//    float: left;
+}
+
+.tweet-item > .text b {
+    font-weight: bold;
+    color: #888;
+}
+
+.tweet-item > .text > a {
+    font-weight: bold;
+    margin-right: 5px;
+    text-decoration: none;
+    color: $tweet-accent;
+}
+
+
+.tweet-item > .text > a:hover {
+    text-decoration: underline;    
+}
+
+.tweet-item > .location {
+    color: $tweet-accent;
+    font-family: $default-font;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 5px;
+    left: 55px;
+}
+
+.tweet-item > .time {
+    font-family: $default-font;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: 11px;
+    color: #bbb;
+}
+
+.tweet-item > .icon {
+    position: absolute;
+//    background: red;
+    height: 45px;
+    width: 45px;
+    top: 5px;
+    left: 5px;
+    @include border-radius(2px);
+}
+
+/* chart stuff */
+
+$chart-w: 280;
+$chart-h: 200;
+.main-chart {
+    position: absolute;
+    height: $chart-h + px;
+    width: $chart-w + px;
+    left: 10px;
+    bottom: 10px;
+}
+
+.main-chart > .bar {
+    @include transition-property(background, opacity);
+    @include transition-duration(600ms);
+
+    position: absolute;
+    bottom: 0px;
+    background: #1F89CC;
+    opacity: 0.2;
+}
+
+.main-chart > .bar.selected {
+    background: #1F89CC;
+    opacity: 1;
+}
+
+.main-chart > .bar > .bar-text {
+    position: absolute;
+    top: -15px;
+    width: 150px;
+    margin-left: - 75 + 14 + px;
+    text-align: center;
+    font-size: 11px;
+    z-index: 1;
+    color: darken(#1F89CC, 10%);
+}

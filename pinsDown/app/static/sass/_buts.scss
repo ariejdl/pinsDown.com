@@ -1,0 +1,67 @@
+/*testing button stuff out  */
+/* line 380, ../sass/home.scss */
+.generic-button {
+  margin-left: 5px;
+  float: left;
+  cursor: pointer;
+  font-family: "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  text-shadow: white 0px 1px 0px;
+  color: #6F6F6F;
+  position: relative;
+  top: 1px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border: none;
+  width: 60px;
+  text-align: center;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+
+  @include compat-grad(#dedede, #f8f8f8);
+
+  border: 1px solid #BBBBBB;
+  -moz-box-shadow: rgba(255, 255, 255, 0.75) 0 1px 0, rgba(0, 0, 0, 0.1) 0 0 3px;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.75) 0 1px 0, rgba(0, 0, 0, 0.1) 0 0 3px;
+  -o-box-shadow: rgba(255, 255, 255, 0.75) 0 1px 0, rgba(0, 0, 0, 0.1) 0 0 3px;
+  box-shadow: rgba(255, 255, 255, 0.75) 0 1px 0, rgba(0, 0, 0, 0.1) 0 0 3px;
+}
+
+/* line 402, ../sass/home.scss */
+input.generic-button {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 0px;
+}
+
+/* line 408, ../sass/home.scss */
+.generic-button:hover {
+    @include compat-grad(#cfcfcf, #f2f2f2);
+}
+
+/* line 412, ../sass/home.scss */
+.generic-button:active {
+  -moz-box-shadow: rgba(255, 255, 255, 0.75) 0 1px 0, rgba(0, 0, 0, 0.3) 0 1px 2px inset;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.75) 0 1px 0, rgba(0, 0, 0, 0.3) 0 1px 2px inset;
+  -o-box-shadow: rgba(255, 255, 255, 0.75) 0 1px 0, rgba(0, 0, 0, 0.3) 0 1px 2px inset;
+  box-shadow: rgba(255, 255, 255, 0.75) 0 1px 0, rgba(0, 0, 0, 0.3) 0 1px 2px inset;
+  border: 1px solid #aaa;
+}
+
+/* line 417, ../sass/home.scss */
+.generic-button.green {
+    @include compat-grad(#2cd56a, #38f27c);
+ color: #21663A;
+  border: 1px solid #1A9647;
+  text-shadow: rgba(255, 255, 255, 0.8) 0px 1px 0px;
+}
+
+/* line 424, ../sass/home.scss */
+.generic-button.green:hover {
+    @include compat-grad(#26c15f, #1bf069);
+
+}
